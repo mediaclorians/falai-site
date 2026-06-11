@@ -1,0 +1,29 @@
+# Segredos — nunca commitar
+.env
+.env.*
+
+# Docker — dados do banco (volume local)
+db_data/
+
+# Arquivos de design binários grandes
+*.psd
+*.ai
+
+# Pastas de trabalho local (não fazem parte do deploy)
+preview-static/
+.claude/
+
+# Imagens temporárias geradas durante desenvolvimento
+check-hero.png
+hero_docker_check.jpg
+figma-full.png
+
+# Assets extra gerados pelo script (não referenciados no HTML)
+site/assets/img/hero-bg.jpg
+site/assets/img/hero-echo.png
+site/assets/img/hero-model.png
+
+# Dependências / caches
+node_modules/
+__pycache__/
+*.pyc

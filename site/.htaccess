@@ -1,0 +1,33 @@
+# ============================================================
+# FALAÍ — Segurança (Apache / hospedagem compartilhada)
+# ============================================================
+
+# Sem listagem de diretórios
+Options -Indexes
+
+# Bloqueia acesso direto a arquivos sensíveis
+<FilesMatch "^(config\.php|config\.example\.php|.*\.sql|\.env.*|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+
+# Bloqueia as pastas config/ e sql/ por inteiro
+RewriteEngine On
+RewriteRule ^(config|sql)(/|$) - [F,L]
+
+# Headers de segurança
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header set Content-Security-Policy "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self'; frame-ancestors 'self'"
+</IfModule>
+
+# Cache de assets estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType text/css   "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
