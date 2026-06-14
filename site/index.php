@@ -16,7 +16,7 @@ $csrf = $_SESSION['csrf_token'];
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=<?php echo filemtime(__DIR__ . '/assets/css/style.css'); ?>">
 </head>
 <body>
@@ -51,10 +51,10 @@ $csrf = $_SESSION['csrf_token'];
           QUE <span class="txt-red">FALA</span><br>
           <span class="txt-red">POR VOCÊ.</span>
         </h1>
-        <p class="hero__subtitle">HUMOR, DESIGN E UMA FRASE CERTEIRA.</p>
+        <h3 class="hero__subtitle">HUMOR, DESIGN E UMA FRASE CERTEIRA.</h3>
         <p class="hero__text">
-          Criamos camisetas com ideias, frases e pequenas verdades
-          do cotidiano. Peças que geram identificação imediata, daquelas
+          Criamos camisetas com ideias, frases e pequenas verdades<br>
+          do cotidiano. Peças que geram identificação imediata, daquelas<br>
           que fazem alguém olhar, sorrir e pensar: &ldquo;é exatamente isso&rdquo;.
         </p>
         <div class="hero__actions">
