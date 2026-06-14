@@ -7,13 +7,14 @@
   --gray-bg: #e8e7e2;
   --black: #0d0d0d;
   --black-pure: #000;
-  --red: #e03c31;
+  --vermelho-eletrico: #E03C31;
   --cyan: #00cfff;
   --lime: #d4f000;
   --text-gray: #5b5a57;
   --text-light: #bbbab7;
   --cinza-po: #B4B2A9;
   --branco-osseo: #F5F4F0;
+  --amarelo-neon: #D4F000;
 
   --font-display: 'Barlow Condensed', 'Barlow', sans-serif;
   --font-cond: 'Barlow Condensed', 'Barlow', sans-serif;
@@ -58,25 +59,29 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 
 /* ---------- elementos recorrentes ---------- */
-.txt-red { color: var(--red); }
+.txt-red { color: var(--vermelho-eletrico); }
 .txt-lime { color: var(--lime); }
 
 .label {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.45em;
-  color: var(--red);
-  margin-bottom: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--vermelho-eletrico);
+  margin-bottom: 10px;
 }
 .label--gray { color: var(--text-light); }
 .label--light { color: rgba(255, 255, 255, 0.85); }
 
-.section-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.1;
-  letter-spacing: 0.01em;
+section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 40px;
   text-transform: uppercase;
 }
 
@@ -95,10 +100,10 @@ section[id] { scroll-margin-top: var(--header-h); }
 .btn:hover { transform: translate(-2px, -2px); }
 .btn:active { transform: translate(0, 0); }
 .btn--lime { background: var(--lime); color: var(--black); }
-.btn--lime:hover { box-shadow: 4px 4px 0 var(--red); }
-.btn--outline-red { border-color: var(--red); color: var(--red); }
-.btn--outline-red:hover { background: var(--red); color: #fff; }
-.btn--red { background: var(--red); color: #fff; }
+.btn--lime:hover { box-shadow: 4px 4px 0 var(--vermelho-eletrico); }
+.btn--outline-red { border-color: var(--vermelho-eletrico); color: var(--vermelho-eletrico); }
+.btn--outline-red:hover { background: var(--vermelho-eletrico); color: #fff; }
+.btn--red { background: var(--vermelho-eletrico); color: #fff; }
 .btn--red:hover { box-shadow: 4px 4px 0 var(--black); }
 
 /* ==========================================================
@@ -139,8 +144,8 @@ section[id] { scroll-margin-top: var(--header-h); }
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: var(--red);
-  border: 1px solid var(--red);
+  color: var(--vermelho-eletrico);
+  border: 1px solid var(--vermelho-eletrico);
   padding: 3px 8px 2px;
 }
 
@@ -257,7 +262,7 @@ section[id] { scroll-margin-top: var(--header-h); }
    MARQUEE
    ========================================================== */
 .marquee {
-  background: var(--cyan);
+  background: var(--vermelho-eletrico);
   overflow: hidden;
   padding: 14px 0;
 }
@@ -280,11 +285,11 @@ section[id] { scroll-margin-top: var(--header-h); }
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.12em;
-  color: var(--black);
+  color: var(--branco-osseo);
   white-space: nowrap;
 }
 
-.marquee__sep { color: var(--red); display: inline-flex; }
+.marquee__sep { color: var(--branco-osseo); display: inline-flex; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -304,28 +309,24 @@ section[id] { scroll-margin-top: var(--header-h); }
   align-items: start;
 }
 
-.sobre__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.12;
-  text-transform: uppercase;
-}
+
+.sobre__head { width: auto; }
+.sobre__head h2 { width: 296px; }
 
 .sobre__texts {
   display: grid;
   gap: 20px;
   font-size: 14.5px;
   color: var(--text-gray);
-  border-left: 1px solid #d8d6cf;
-  padding-left: 40px;
+  width: fit-content;
 }
 
 .sobre__card {
+  box-sizing: border-box;
+  width: 360px;
   background: var(--black-pure);
-  border: 2px solid var(--lime);
-  box-shadow: 8px 8px 0 rgba(13, 13, 13, 0.12);
-  padding: 36px 32px;
+  border-left: 5px solid var(--amarelo-neon);
+  padding: 16px;
 }
 
 .sobre__card p {
@@ -408,7 +409,7 @@ section[id] { scroll-margin-top: var(--header-h); }
    MISSÃO / VISÃO
    ========================================================== */
 /* fundo sangra até as bordas; o texto alinha com o container central */
-.mv { background: linear-gradient(90deg, var(--black-pure) 50%, var(--red) 50%); }
+.mv { background: linear-gradient(90deg, var(--black-pure) 50%, var(--vermelho-eletrico) 50%); }
 
 .mv__grid { display: grid; grid-template-columns: 1fr 1fr; }
 
@@ -420,7 +421,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   padding-right: clamp(32px, 5vw, 90px);
 }
 .mv__col--visao {
-  background: var(--red);
+  background: var(--vermelho-eletrico);
   color: #fff;
   padding-left: clamp(32px, 5vw, 90px);
 }
@@ -495,7 +496,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.22em;
-  background: var(--red);
+  background: var(--vermelho-eletrico);
   color: #fff;
   padding: 6px 12px;
   margin: 0 28px;
@@ -528,8 +529,8 @@ section[id] { scroll-margin-top: var(--header-h); }
   font-size: 14px;
 }
 
-.contato__list svg { color: var(--red); flex-shrink: 0; }
-.contato__list a:hover { color: var(--red); }
+.contato__list svg { color: var(--vermelho-eletrico); flex-shrink: 0; }
+.contato__list a:hover { color: var(--vermelho-eletrico); }
 
 /* formulário */
 .contato__form input,
@@ -596,7 +597,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   min-height: 20px;
 }
 .form__feedback.is-ok { color: #1e7d32; }
-.form__feedback.is-error { color: var(--red); }
+.form__feedback.is-error { color: var(--vermelho-eletrico); }
 
 /* honeypot — escondido de humanos */
 .hp-field {
@@ -642,7 +643,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 
 .nav--footer .nav__link:hover,
-.nav--footer .nav__link.is-active { border-color: var(--red); color: var(--off-white); }
+.nav--footer .nav__link.is-active { border-color: var(--vermelho-eletrico); color: var(--off-white); }
 
 .footer__bottom {
   display: flex;

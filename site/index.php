@@ -90,11 +90,13 @@ $csrf = $_SESSION['csrf_token'];
   <!-- ============ SOBRE ============ -->
   <section class="sobre section" id="sobre">
     <div class="container">
-      <p class="label">SOBRE A FALAÍ</p>
       <div class="sobre__grid">
-        <h2 class="sobre__title">
-          UMA CAMISETA PODE <span class="txt-red">PROVOCAR,</span> RESUMIR E ATÉ MESMO GRITAR
-        </h2>
+        <div class="sobre__head">
+          <p class="label">SOBRE A FALAÍ</p>
+          <h2 class="sobre__title">
+            UMA CAMISETA PODE <span class="txt-red">PROVOCAR,</span> RESUMIR E ATÉ MESMO GRITAR
+          </h2>
+        </div>
         <div class="sobre__texts">
           <p>
             A Falaí é para quem gosta de se comunicar sem precisar fazer textão.
