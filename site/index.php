@@ -90,13 +90,11 @@ $csrf = $_SESSION['csrf_token'];
   <!-- ============ SOBRE ============ -->
   <section class="sobre section" id="sobre">
     <div class="container">
+      <p class="label">SOBRE A FALAÍ</p>
       <div class="sobre__grid">
-        <div class="sobre__head">
-          <p class="label">SOBRE A FALAÍ</p>
-          <h2 class="sobre__title">
-            UMA CAMISETA PODE <span class="txt-red">PROVOCAR,</span> RESUMIR E ATÉ MESMO GRITAR
-          </h2>
-        </div>
+        <h2 class="sobre__title">
+          UMA CAMISETA PODE <span class="txt-red">PROVOCAR,</span> RESUMIR E ATÉ MESMO GRITAR
+        </h2>
         <div class="sobre__texts">
           <p>
             A Falaí é para quem gosta de se comunicar sem precisar fazer textão.
@@ -126,12 +124,9 @@ $csrf = $_SESSION['csrf_token'];
       <p class="label">NOSSOS VALORES</p>
       <div class="valores__head">
         <h2 class="section-title">O QUE <span class="txt-red">GUIA</span> CADA ESTAMPA</h2>
-        <div class="valores__nav">
-          <button class="carousel-btn carousel-btn--prev" aria-label="Valor anterior">&#8249;</button>
-          <button class="carousel-btn carousel-btn--next" aria-label="Próximo valor">&#8250;</button>
-        </div>
       </div>
-      <div class="carousel" tabindex="0" aria-label="Carrossel de valores">
+      <div class="valores__carousel">
+        <div class="carousel" tabindex="0" aria-label="Carrossel de valores">
         <ul class="carousel__track">
           <li class="value-card">
             <span class="value-card__num">01</span>
@@ -164,6 +159,11 @@ $csrf = $_SESSION['csrf_token'];
             <p>Cuidamos para que cada peça saia da ideia e chegue ao cliente com qualidade, agilidade e atenção aos detalhes.</p>
           </li>
         </ul>
+        </div>
+        <div class="valores__nav">
+          <button class="carousel-btn carousel-btn--prev" aria-label="Valor anterior">&#8249;</button>
+          <button class="carousel-btn carousel-btn--next" aria-label="Próximo valor">&#8250;</button>
+        </div>
       </div>
     </div>
   </section>
