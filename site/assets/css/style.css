@@ -445,22 +445,30 @@ section h2 {
   padding-left: clamp(32px, 5vw, 90px);
 }
 
+.mv .label { color: var(--cinza-po); }
+
 .mv__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(28px, 3vw, 38px);
+  font-family: var(--font-cond);
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 40px;
   text-transform: uppercase;
+  color: var(--branco-osseo);
   margin-bottom: 20px;
 }
 
-.mv__text { font-size: 14.5px; max-width: 460px; }
-.mv__col--missao .mv__text { color: var(--text-light); }
-.mv__col--visao .mv__text { color: rgba(255, 255, 255, 0.92); }
+.mv__text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--branco-osseo);
+  max-width: 460px;
+}
 
 /* ==========================================================
    TIME
    ========================================================== */
-.time { background: var(--off-white); }
+.time { background: var(--cinza-nevoa); }
 
 .time__grid {
   display: grid;
@@ -472,8 +480,11 @@ section h2 {
 .time__intro { position: sticky; top: calc(var(--header-h) + 32px); }
 
 .time__text {
-  font-size: 14px;
-  color: var(--text-gray);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--preto-absoluto);
   margin-top: 20px;
 }
 
@@ -483,7 +494,7 @@ section h2 {
   gap: 4px;
 }
 
-.member { background: #fff; padding-bottom: 32px; }
+.member { background: var(--branco-osseo); padding-bottom: 32px; }
 
 .member__photo {
   border-bottom: 4px solid var(--cyan);
@@ -498,25 +509,33 @@ section h2 {
 
 .member__name {
   font-family: var(--font-cond);
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: var(--preto-absoluto);
   margin: 24px 28px 12px;
 }
 
 .member__bio {
-  font-size: 13.5px;
-  color: var(--text-gray);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--preto-absoluto);
   margin: 0 28px 20px;
 }
 
 .member__role {
   display: inline-block;
   font-family: var(--font-mono);
+  font-weight: 400;
   font-size: 11px;
-  letter-spacing: 0.22em;
+  line-height: 18px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   background: var(--vermelho-eletrico);
-  color: #fff;
+  color: var(--branco-osseo);
   padding: 6px 12px;
   margin: 0 28px;
 }
@@ -524,18 +543,21 @@ section h2 {
 /* ==========================================================
    CONTATO
    ========================================================== */
-.contato { background: var(--cinza-nevoa); }
+.contato { background: var(--branco-osseo); }
 
 .contato__grid {
   display: grid;
   grid-template-columns: minmax(260px, 0.9fr) 2fr;
-  gap: 56px;
+  gap: 0;
   margin-top: 48px;
 }
 
 .contato__info p {
-  font-size: 14px;
-  color: var(--text-gray);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--preto-absoluto);
   max-width: 320px;
 }
 
@@ -545,7 +567,11 @@ section h2 {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--preto-absoluto);
 }
 
 .contato__list svg { color: var(--vermelho-eletrico); flex-shrink: 0; }
@@ -559,7 +585,7 @@ section h2 {
   font-family: var(--font-body);
   font-size: 14px;
   color: var(--preto-absoluto);
-  background: #fff;
+  background: var(--cinza-nevoa);
   border: 1px solid transparent;
   padding: 16px 18px;
   transition: border-color 0.2s ease;
@@ -577,10 +603,10 @@ section h2 {
 .form__row {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 16px;
+  gap: 4px;
 }
 
-.form__group { display: grid; gap: 16px; align-content: start; }
+.form__group { display: grid; gap: 4px; align-content: start; }
 
 .form__group--msg { grid-template-rows: 1fr auto; }
 
