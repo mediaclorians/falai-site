@@ -156,7 +156,7 @@
       var v = e.target.value.replace(/\D/g, '');
       v = v.substring(0, 11); // Limita a 11 dígitos
       v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
-      v = v.replace(/(\d)(\d{4})$/, '$1-$2');
+      v = v.replace(/(\d{1,5})(\d{4})$/, '$1-$2');
       e.target.value = v;
     });
   }
