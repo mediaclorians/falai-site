@@ -149,10 +149,55 @@
     update();
   }
 
+  /* ---------- Máscara de Telefone (WhatsApp) ---------- */
+  var whatsappInput = document.getElementById('whatsapp');
+  if (whatsappInput) {
+    whatsappInput.addEventListener('input', function (e) {
+      var v = e.target.value.replace(/\D/g, '');
+      v = v.substring(0, 11); // Limita a 11 dígitos
+      v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
+      v = v.replace(/(\d)(\d{4})$/, '$1-$2');
+      e.target.value = v;
+    });
+  }
+
   /* ---------- Formulário de contato ---------- */
   var form = document.getElementById('form-contato');
   var feedback = form.querySelector('.form__feedback');
   var submitBtn = form.querySelector('.form__submit');
+  var inputs = form.querySelectorAll('input, select, textarea');
+
+  function removeError(input) {
+    input.classList.remove('is-invalid');
+    var errorMsg = input.nextElementSibling;
+    if (errorMsg && errorMsg.classList.contains('error-msg')) {
+      errorMsg.remove();
+    }
+  }
+
+  function showError(input, message) {
+    removeError(input);
+    input.classList.add('is-invalid');
+    var errorMsg = document.createElement('span');
+    errorMsg.className = 'error-msg';
+    errorMsg.textContent = message;
+    input.parentNode.insertBefore(errorMsg, input.nextSibling);
+  }
+
+  inputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      if (input.classList.contains('is-invalid')) {
+        removeError(input);
+      }
+    });
+    input.addEventListener('blur', function () {
+      if (!input.checkValidity() && input.value !== '') {
+        showError(input, input.validationMessage);
+      } else if (input.checkValidity()) {
+        removeError(input);
+      }
+    });
+  });
 
   function showFeedback(msg, ok) {
     feedback.textContent = msg;
@@ -163,8 +208,17 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    var isValid = true;
+    inputs.forEach(function (input) {
+      if (!input.checkValidity()) {
+        showError(input, input.validationMessage);
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      var firstInvalid = form.querySelector('.is-invalid');
+      if (firstInvalid) firstInvalid.focus();
       return;
     }
 

@@ -341,7 +341,7 @@ $csrf = $_SESSION['csrf_token'];
                 <input type="email" id="email" name="email" placeholder="Seu e-mail*" required maxlength="150"
                   autocomplete="email">
                 <label for="whatsapp" class="sr-only">Seu WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Seu WhatsApp" maxlength="20"
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Seu WhatsApp" required maxlength="20"
                   autocomplete="tel">
                 <label for="assunto" class="sr-only">Assunto</label>
                 <select id="assunto" name="assunto" required>

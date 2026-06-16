@@ -775,7 +775,7 @@ section h2 {
 .contato__form textarea {
   resize: vertical;
   min-height: 165px;
-  height: 165px;
+  height: 100%;
 }
 
 .form__submit {
@@ -801,6 +801,26 @@ section h2 {
 
 .form__feedback.is-error {
   color: var(--vermelho-eletrico);
+}
+
+.contato__form input.is-invalid,
+.contato__form select.is-invalid,
+.contato__form textarea.is-invalid {
+  border-color: var(--vermelho-eletrico);
+  animation: shake 0.3s ease-in-out;
+}
+
+.error-msg {
+  color: var(--vermelho-eletrico);
+  font-family: var(--font-body);
+  font-size: 13px;
+  margin-top: -2px;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }
 
 /* honeypot — escondido de humanos */
