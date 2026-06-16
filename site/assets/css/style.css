@@ -19,7 +19,7 @@
   --font-display: 'Barlow Condensed', 'Barlow', sans-serif;
   --font-cond: 'Barlow Condensed', 'Barlow', sans-serif;
   --font-mono: 'Space Mono', monospace;
-  --font-body: 'Barlow Condensed', 'Barlow', sans-serif;
+  --font-body: 'Barlow', sans-serif;
 
   --header-h: 72px;
 }
@@ -39,6 +39,7 @@ body {
   background: var(--off-white);
   color: var(--preto-absoluto);
   line-height: 1.6;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -273,7 +274,7 @@ section h2 {
   background-color: var(--black-pure);
   background-image: url('../img/hero.jpg');
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: center bottom;
   background-size: contain;
   color: var(--off-white);
   overflow: hidden;
@@ -299,6 +300,10 @@ section h2 {
   letter-spacing: 0.01em;
 }
 
+.hero__br--mob {
+  display: none;
+}
+
 .hero__subtitle {
   font-family: 'Barlow Condensed', sans-serif;
   font-style: normal;
@@ -312,9 +317,6 @@ section h2 {
 }
 
 .hero__text {
-  font-family: 'Barlow', sans-serif;
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: var(--branco-osseo);
@@ -397,8 +399,6 @@ section h2 {
 .sobre__texts {
   display: grid;
   gap: 20px;
-  font-size: 15px;
-  color: var(--text-gray);
   width: fit-content;
 }
 
@@ -529,14 +529,6 @@ section h2 {
   color: var(--preto-absoluto);
 }
 
-.value-card p {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--preto-absoluto);
-}
-
 /* ==========================================================
    MISSÃO / VISÃO
    ========================================================== */
@@ -581,9 +573,6 @@ section h2 {
 }
 
 .mv__text {
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  line-height: 22px;
   color: var(--branco-osseo);
   max-width: 460px;
 }
@@ -608,10 +597,6 @@ section h2 {
 }
 
 .time__text {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
   color: var(--preto-absoluto);
   margin-top: 20px;
 }
@@ -646,16 +631,10 @@ section h2 {
   font-size: 28px;
   line-height: 28px;
   text-transform: uppercase;
-  color: var(--preto-absoluto);
   margin: 24px 28px 12px;
 }
 
 .member__bio {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--preto-absoluto);
   margin: 0 28px 20px;
 }
 
@@ -688,11 +667,6 @@ section h2 {
 }
 
 .contato__info p {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--preto-absoluto);
   max-width: 320px;
 }
 
@@ -818,9 +792,19 @@ section h2 {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
 }
 
 /* honeypot — escondido de humanos */
@@ -1078,6 +1062,14 @@ section h2 {
   .hero__title {
     font-size: clamp(48px, 13vw, 64px);
     line-height: 1;
+  }
+
+  .hero__br--desk {
+    display: none;
+  }
+
+  .hero__br--mob {
+    display: inline;
   }
 
   .hero__text br {
