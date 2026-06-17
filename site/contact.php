@@ -16,6 +16,13 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/lib/phpmailer/Exception.php';
+require_once __DIR__ . '/lib/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/lib/phpmailer/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer as Mailer;
+use PHPMailer\PHPMailer\Exception as MailerException;
+
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
@@ -167,11 +174,6 @@ $mailCfg = $config['mail'];
 if (!empty($mailCfg['enabled'])) {
     $assuntoLabel = $assuntosValidos[$assunto];
 
-    $subject = mb_encode_mimeheader(
-        $mailCfg['subject_prefix'] . $assuntoLabel . ' — ' . $nome,
-        'UTF-8', 'B'
-    );
-
     $body = "Novo contato pelo site Falaí\n"
           . "============================\n\n"
           . "Nome:     {$nome}\n"
@@ -182,19 +184,34 @@ if (!empty($mailCfg['enabled'])) {
           . "----------------------------\n"
           . "Registro #{$contatoId} · " . date('d/m/Y H:i:s') . "\n";
 
-    $fromName = mb_encode_mimeheader($mailCfg['from_name'], 'UTF-8', 'B');
+    $smtpCfg = $config['smtp'];
+    $mailer = new Mailer(true);
 
-    // headers montados apenas com valores validados/codificados
-    $headers = [
-        'From: ' . $fromName . ' <' . $mailCfg['from'] . '>',
-        'Reply-To: ' . $email,           // já validado por FILTER_VALIDATE_EMAIL
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding: 8bit',
-        'X-Mailer: FalaiSite',
-    ];
+    try {
+        $mailer->isSMTP();
+        $mailer->Host       = $smtpCfg['host'];
+        $mailer->SMTPAuth   = true;
+        $mailer->Username   = $smtpCfg['user'];
+        $mailer->Password   = $smtpCfg['pass'];
+        $mailer->SMTPSecure = $smtpCfg['secure'] === 'tls'
+            ? Mailer::ENCRYPTION_STARTTLS
+            : Mailer::ENCRYPTION_SMTPS;
+        $mailer->Port       = $smtpCfg['port'];
+        $mailer->CharSet    = 'UTF-8';
 
-    $emailEnviado = @mail($mailCfg['to'], $subject, $body, implode("\r\n", $headers));
+        $mailer->setFrom($mailCfg['from'], $mailCfg['from_name']);
+        $mailer->addAddress($mailCfg['to']);
+        $mailer->addReplyTo($email, $nome);
+
+        $mailer->Subject = $mailCfg['subject_prefix'] . $assuntoLabel . ' — ' . $nome;
+        $mailer->Body    = $body;
+        $mailer->isHTML(false);
+
+        $mailer->send();
+        $emailEnviado = true;
+    } catch (MailerException $e) {
+        error_log('FALAI MAIL: ' . $mailer->ErrorInfo);
+    }
 
     if ($emailEnviado) {
         try {
@@ -203,8 +220,6 @@ if (!empty($mailCfg['enabled'])) {
         } catch (PDOException $e) {
             error_log('FALAI DB update: ' . $e->getMessage());
         }
-    } else {
-        error_log("FALAI MAIL: falha ao enviar e-mail do contato #{$contatoId}");
     }
 }
 

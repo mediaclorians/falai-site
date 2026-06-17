@@ -24,11 +24,18 @@ return [
     'mail' => [
         'enabled' => filter_var($env('MAIL_ENABLED', 'false'), FILTER_VALIDATE_BOOLEAN),
 
-        'to'        => $env('MAIL_TO', 'contato@falaicamiseta.com.br'),
-        // remetente deve ser a mesma conta autenticada no SMTP (Hostinger)
-        'from'      => $env('MAIL_FROM', $env('SMTP_USER', 'site@falaicamiseta.com.br')),
-        'from_name' => $env('MAIL_FROM_NAME', 'Site Falaí'),
+        'to'             => $env('MAIL_TO',        'contato@falaicamiseta.com.br'),
+        'from'           => $env('MAIL_FROM',      $env('SMTP_USER', 'contato@falaicamiseta.com.br')),
+        'from_name'      => $env('MAIL_FROM_NAME', 'Site Falaí'),
         'subject_prefix' => '[Site Falaí] ',
+    ],
+
+    'smtp' => [
+        'host'   => $env('SMTP_HOST',   'smtp.hostinger.com'),
+        'port'   => (int) $env('SMTP_PORT',   '465'),
+        'user'   => $env('SMTP_USER',   ''),
+        'pass'   => $env('SMTP_PASS',   ''),
+        'secure' => $env('SMTP_SECURE', 'ssl'), // 'ssl' para porta 465, 'tls' para 587
     ],
 
     'rate_limit' => [
