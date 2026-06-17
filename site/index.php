@@ -352,11 +352,10 @@ $csrf = $_SESSION['csrf_token'];
                 <label for="assunto" class="sr-only">Assunto</label>
                 <select id="assunto" name="assunto" required>
                   <option value="" disabled selected>Assunto</option>
-                  <option value="duvida">Dúvida</option>
+                  <option value="duvida">Dúvidas</option>
                   <option value="pedido">Pedido</option>
                   <option value="parceria">Parceria</option>
-                  <option value="frase">Sugestão de frase</option>
-                  <option value="outro">Outro</option>
+                  <option value="outro">Outros Assuntos</option>
                 </select>
               </div>
               <div class="form__group form__group--msg">
