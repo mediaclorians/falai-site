@@ -3,7 +3,7 @@ services:
     build: .
     labels:
       - traefik.enable=true
-      - traefik.http.routers.falai.rule=Host(`falaicamiseta.com.br`,`www.falaicamiseta.com.br`)
+      - traefik.http.routers.falai.rule=Host(`falaicamiseta.com.br`) || Host(`www.falaicamiseta.com.br`)
       - traefik.http.routers.falai.entrypoints=web,websecure
       - traefik.http.routers.falai.tls=true
       - traefik.http.routers.falai.tls.certresolver=mytlschallenge
