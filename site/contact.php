@@ -62,7 +62,7 @@ $assunto  = (string)($_POST['assunto'] ?? '');
 $mensagem = trim((string)($_POST['mensagem'] ?? ''));
 
 $assuntosValidos = [
-    'duvida'   => 'Dúvida',
+    'duvida'   => 'Dúvidas',
     'pedido'   => 'Pedido',
     'parceria' => 'Parceria',
     'frase'    => 'Sugestão de frase',
